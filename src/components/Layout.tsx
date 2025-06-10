@@ -67,7 +67,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 {/* GitHub link */}
                 <li>
                   <a 
-                    href="https://github.com/yourusername/funwithflags" 
+                    href="https://github.com/itfeelsharsh/funwithflags" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="btn btn-neutral"
