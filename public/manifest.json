@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Fun With Flags",
+  "name": "Fun With Flags - The Ultimate Flag Quiz Game",
+  "description": "Test your knowledge of world flags in this interactive quiz game",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,16 +11,36 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait",
+  "theme_color": "#1e40af",
+  "background_color": "#ffffff",
+  "categories": ["games", "education", "entertainment"],
+  "screenshots": [
+    {
+      "src": "screenshot1.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "screenshot2.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg"
+    }
+  ],
+  "dir": "ltr",
+  "lang": "en-US",
+  "prefer_related_applications": false
 }

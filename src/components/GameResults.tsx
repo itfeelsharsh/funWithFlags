@@ -7,6 +7,8 @@
 import React, { useEffect, useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { GameMode, GameDifficulty } from '../types';
+// Import the logo from assets
+import logo from '../assets/images/logo.png';
 
 /**
  * GameResults Component
@@ -162,8 +164,17 @@ const GameResults: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         {/* Results header */}
         <div className={`text-center mb-10 transition-all duration-500 ${showStats ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-8'}`}>
-          <div className="inline-block rounded-full p-5 bg-gradient-to-br from-game-primary/20 to-game-secondary/20 backdrop-blur-sm mb-4">
-            <div className="text-5xl">{performance.emoji}</div>
+          {/* Logo and emoji container */}
+          <div className="flex flex-col items-center mb-4">
+            <img 
+              src={logo} 
+              alt="Fun with Flags Logo" 
+              className="w-16 h-16 object-contain mb-4"
+              title="Fun with Flags Logo"
+            />
+            <div className="inline-block rounded-full p-5 bg-gradient-to-br from-game-primary/20 to-game-secondary/20 backdrop-blur-sm">
+              <div className="text-5xl">{performance.emoji}</div>
+            </div>
           </div>
           <h1 className="game-header text-4xl sm:text-5xl mb-2">Game Results</h1>
           <p className="text-game-light/60">{formattedDate}</p>

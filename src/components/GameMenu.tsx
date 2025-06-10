@@ -7,6 +7,8 @@
 import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { GameDifficulty, GameMode } from '../types';
+// Import the logo from assets
+import logo from '../assets/images/logo.png';
 
 /**
  * GameMenu Component
@@ -45,8 +47,14 @@ const GameMenu: React.FC = () => {
         {/* Game title and intro */}
         <div className="text-center mb-16">
           <div className="mb-6 inline-flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-game-primary to-game-secondary flex items-center justify-center shadow-game-lg">
-              <span className="text-white text-3xl font-bold">F</span>
+            {/* Replace placeholder with actual logo */}
+            <div className="w-16 h-16 flex items-center justify-center">
+              <img 
+                src={logo} 
+                alt="Fun with Flags Logo" 
+                className="w-full h-full object-contain"
+                title="Fun with Flags Logo"
+              />
             </div>
           </div>
           <h1 className="game-header text-5xl sm:text-6xl mb-6">Fun with Flags</h1>

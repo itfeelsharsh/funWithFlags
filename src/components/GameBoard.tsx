@@ -8,6 +8,8 @@ import React, { useState, useEffect } from 'react';
 import { useGame } from '../context/GameContext';
 import { GameMode, GameDifficulty } from '../types';
 import FlagCard from './FlagCard';
+// Import the logo from assets
+import logo from '../assets/images/logo.png';
 
 /**
  * GameBoard Component
@@ -138,6 +140,12 @@ const GameBoard: React.FC = () => {
         <div className="flex flex-col sm:flex-row justify-between items-center">
           <div className="mb-4 sm:mb-0">
             <div className="flex items-center mb-1">
+              <img 
+                src={logo} 
+                alt="Fun with Flags Logo" 
+                className="w-8 h-8 object-contain mr-2"
+                title="Fun with Flags Logo"
+              />
               <h2 className="text-2xl font-bold">
                 Round {gameState.currentRound} of {gameState.totalRounds}
               </h2>

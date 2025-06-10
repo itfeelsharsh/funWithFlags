@@ -6,6 +6,8 @@
  */
 import React, { ReactNode } from 'react';
 import { useGame } from '../context/GameContext';
+// Import the logo from assets
+import logo from '../assets/images/logo.png';
 
 /**
  * Layout Props Interface
@@ -40,8 +42,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="flex justify-between items-center">
             {/* Logo and title */}
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-game-primary to-game-secondary flex items-center justify-center shadow-game">
-                <span className="text-white text-xl font-bold">F</span>
+              {/* Replace the placeholder with actual logo */}
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img 
+                  src={logo} 
+                  alt="Fun with Flags Logo" 
+                  className="w-full h-full object-contain"
+                  title="Fun with Flags Logo"
+                />
               </div>
               <div className="text-2xl font-bold game-header">
                 Fun with Flags
@@ -106,7 +114,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="game-container">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <div className="game-header text-lg mb-1">Fun with Flags</div>
+              {/* Add logo to footer */}
+              <div className="flex items-center space-x-2 mb-2">
+                <img 
+                  src={logo} 
+                  alt="Fun with Flags Logo" 
+                  className="w-8 h-8 object-contain"
+                  title="Fun with Flags Logo"
+                />
+                <div className="game-header text-lg">Fun with Flags</div>
+              </div>
               <p className="text-sm text-game-light/60">
                 Test your knowledge of world flags and geography
               </p>
