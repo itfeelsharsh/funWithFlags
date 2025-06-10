@@ -1,93 +1,44 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/**/*.{js,jsx,ts,tsx}", // Looks for Tailwind classes in all JS/TS/JSX/TSX files in src directory
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
+      // Modern and professional color palette
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        // Game theme colors
-        game: {
-          primary: "hsl(var(--game-primary))",
-          secondary: "hsl(var(--game-secondary))",
-          accent: "hsl(var(--game-accent))",
-          bg: "hsl(var(--game-bg))",
-        },
+        'game-primary': '#3B82F6',     // Vibrant blue for primary actions
+        'game-secondary': '#8B5CF6',   // Purple for secondary elements
+        'game-dark': '#111827',        // Darker background for better contrast
+        'game-light': '#F9FAFB',       // Light text/background elements
+        'game-accent': '#F59E0B',      // Amber for highlights and accents
+        'game-success': '#10B981',     // Green for success states
+        'game-error': '#EF4444',       // Red for error states
+        'game-neutral': '#6B7280',     // Neutral gray for subtle elements
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      fontFamily: {
+        'game': ['Poppins', 'sans-serif'], // Modern font for game UI
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: 0 },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
-        },
-        "flag-wave": {
-          "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-5px)" },
-          "100%": { transform: "translateY(0)" },
-        },
-        "score-pulse": {
-          "0%, 100%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.1)" },
-        },
+      boxShadow: {
+        'game': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'game-lg': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "flag-wave": "flag-wave 2s ease-in-out infinite",
-        "score-pulse": "score-pulse 0.5s ease-in-out",
+        'bounce-slow': 'bounce 3s infinite',
+        'pulse-slow': 'pulse 3s infinite',
+        'flag-wave': 'flag-wave 2.5s ease-in-out infinite',
+      },
+      keyframes: {
+        'flag-wave': {
+          '0%, 100%': { transform: 'rotate(-2deg)' },
+          '50%': { transform: 'rotate(2deg)' },
+        }
+      },
+      backgroundImage: {
+        'game-gradient': 'linear-gradient(to right, var(--tw-gradient-stops))',
+        'card-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 } 

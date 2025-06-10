@@ -1,0 +1,115 @@
+/* Import Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import game fonts - added a secondary font for headers */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap');
+
+/* Custom global styles */
+body {
+  @apply font-game bg-game-dark text-game-light;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.1), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Custom utility classes */
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply px-4 py-2 rounded-lg transition-all duration-300 font-medium 
+           transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-game-primary to-game-primary/90 hover:from-game-primary/90 hover:to-game-primary
+           text-white shadow-game;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-game-secondary to-game-secondary/90 hover:from-game-secondary/90 hover:to-game-secondary
+           text-white shadow-game;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-game-accent to-game-accent/90 hover:from-game-accent/90 hover:to-game-accent
+           text-white shadow-game;
+  }
+
+  .btn-success {
+    @apply bg-gradient-to-r from-game-success to-game-success/90 hover:from-game-success/90 hover:to-game-success
+           text-white shadow-game;
+  }
+
+  .btn-error {
+    @apply bg-gradient-to-r from-game-error to-game-error/90 hover:from-game-error/90 hover:to-game-error
+           text-white shadow-game;
+  }
+
+  .btn-neutral {
+    @apply bg-white/10 hover:bg-white/20 text-white/90 backdrop-blur-sm;
+  }
+  
+  /* Card styles */
+  .game-card {
+    @apply bg-card-gradient backdrop-blur-md rounded-xl shadow-game border border-white/5;
+  }
+
+  .game-card-interactive {
+    @apply game-card transition-all duration-300 cursor-pointer hover:shadow-game-lg 
+           hover:border-white/10 transform hover:-translate-y-1;
+  }
+  
+  /* Container styles */
+  .game-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Flag animations */
+  .flag-wave {
+    animation: flag-wave 2.5s ease-in-out infinite;
+  }
+
+  @keyframes flag-wave {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  /* Slide-up animation for feedback panel */
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out forwards;
+  }
+
+  @keyframes slide-up {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Header styles */
+  .game-header {
+    @apply font-bold bg-gradient-to-r from-game-primary to-game-secondary bg-clip-text text-transparent;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Custom game design elements */
+  .stat-value {
+    @apply text-2xl font-bold bg-gradient-to-r from-game-primary to-game-secondary bg-clip-text text-transparent;
+  }
+
+  .stat-label {
+    @apply text-sm text-game-light/70;
+  }
+
+  /* Progress bars */
+  .progress-bar {
+    @apply h-2 bg-white/10 rounded-full overflow-hidden;
+  }
+
+  .progress-bar-fill {
+    @apply h-full bg-gradient-to-r from-game-primary to-game-secondary;
+  }
+}
