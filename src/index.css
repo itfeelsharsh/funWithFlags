@@ -21,8 +21,9 @@ body {
 @layer components {
   /* Button styles */
   .btn {
-    @apply px-4 py-2 rounded-lg transition-all duration-300 font-medium 
-           transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-opacity-50;
+    @apply px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg transition-all duration-300 font-medium 
+           transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-opacity-50
+           text-sm sm:text-base;
   }
   
   .btn-primary {
@@ -66,7 +67,12 @@ body {
   
   /* Container styles */
   .game-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full;
+  }
+  
+  /* Mobile-first utility for full-width elements */
+  .mobile-full {
+    @apply w-full sm:w-auto;
   }
   
   /* Flag animations */

@@ -42,13 +42,13 @@ const GameMenu: React.FC = () => {
   };
   
   return (
-    <div className="game-container py-12">
-      <div className="max-w-4xl mx-auto">
+    <div className="game-container py-6 sm:py-8 md:py-12">
+      <div className="max-w-4xl mx-auto w-full">
         {/* Game title and intro */}
-        <div className="text-center mb-16">
-          <div className="mb-6 inline-flex items-center justify-center">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <div className="mb-4 sm:mb-6 inline-flex items-center justify-center">
             {/* Replace placeholder with actual logo */}
-            <div className="w-16 h-16 flex items-center justify-center">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center">
               <img 
                 src={logo} 
                 alt="Fun with Flags Logo" 
@@ -57,28 +57,28 @@ const GameMenu: React.FC = () => {
               />
             </div>
           </div>
-          <h1 className="game-header text-5xl sm:text-6xl mb-6">Fun with Flags</h1>
-          <p className="text-xl text-game-light/80 max-w-3xl mx-auto mb-8">
+          <h1 className="game-header text-3xl sm:text-5xl md:text-6xl mb-4 sm:mb-6">Fun with Flags</h1>
+          <p className="text-base sm:text-lg md:text-xl text-game-light/80 max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
             Test your knowledge of world flags and countries in this exciting geography quiz game inspired by Sheldon Cooper!
           </p>
           
           {/* Player stats if available */}
           {gameStats.gamesPlayed > 0 && (
-            <div className="inline-block">
-              <div className="game-card p-6 shadow-game-lg border border-white/10">
-                <h3 className="text-lg font-semibold mb-4 text-center game-header">Your Stats</h3>
-                <div className="grid grid-cols-3 gap-6 text-center">
+            <div className="inline-block w-full max-w-md">
+              <div className="game-card p-4 sm:p-6 shadow-game-lg border border-white/10">
+                <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-center game-header">Your Stats</h3>
+                <div className="grid grid-cols-3 gap-3 sm:gap-6 text-center">
                   <div>
-                    <p className="stat-value">{gameStats.gamesPlayed}</p>
-                    <p className="stat-label">Games Played</p>
+                    <p className="stat-value text-xl sm:text-2xl">{gameStats.gamesPlayed}</p>
+                    <p className="stat-label text-xs sm:text-sm">Games Played</p>
                   </div>
                   <div>
-                    <p className="stat-value">{calculateAccuracy()}%</p>
-                    <p className="stat-label">Accuracy</p>
+                    <p className="stat-value text-xl sm:text-2xl">{calculateAccuracy()}%</p>
+                    <p className="stat-label text-xs sm:text-sm">Accuracy</p>
                   </div>
                   <div>
-                    <p className="stat-value">{gameStats.streakBest}</p>
-                    <p className="stat-label">Best Streak</p>
+                    <p className="stat-value text-xl sm:text-2xl">{gameStats.streakBest}</p>
+                    <p className="stat-label text-xs sm:text-sm">Best Streak</p>
                   </div>
                 </div>
               </div>
@@ -87,15 +87,15 @@ const GameMenu: React.FC = () => {
         </div>
         
         {/* Game setup form */}
-        <form onSubmit={handleStartGame} className="space-y-12">
-          <div className="game-card p-8 shadow-game border border-white/10">
-            <h2 className="text-2xl font-bold mb-8 game-header">Game Settings</h2>
+        <form onSubmit={handleStartGame} className="space-y-6 sm:space-y-8 md:space-y-12">
+          <div className="game-card p-4 sm:p-6 md:p-8 shadow-game border border-white/10">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 md:mb-8 game-header">Game Settings</h2>
             
             {/* Game mode selection */}
-            <div className="mb-10">
-              <label className="block text-lg font-medium mb-4">Game Mode</label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <label className={`game-card-interactive p-5 ${
+            <div className="mb-6 sm:mb-8 md:mb-10">
+              <label className="block text-base sm:text-lg font-medium mb-3 sm:mb-4">Game Mode</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <label className={`game-card-interactive p-3 sm:p-4 md:p-5 ${
                   mode === GameMode.FLAG_TO_COUNTRY ? 'border-2 border-game-primary bg-game-primary/5' : 'opacity-80 hover:opacity-100'
                 }`}>
                   <input 
@@ -106,21 +106,21 @@ const GameMenu: React.FC = () => {
                     className="sr-only"
                   />
                   <div className="flex items-start">
-                    <div className="bg-game-primary/10 rounded-full p-3 mr-4">
-                      <svg className="w-6 h-6 text-game-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="bg-game-primary/10 rounded-full p-2 sm:p-3 mr-2 sm:mr-3 md:mr-4 flex-shrink-0">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-game-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold text-lg mb-1">Flag to Country</div>
-                      <div className="text-sm text-game-light/70">
+                      <div className="font-semibold text-base sm:text-lg mb-0.5 sm:mb-1">Flag to Country</div>
+                      <div className="text-xs sm:text-sm text-game-light/70">
                         See a flag, guess which country it belongs to
                       </div>
                     </div>
                   </div>
                 </label>
                 
-                <label className={`game-card-interactive p-5 ${
+                <label className={`game-card-interactive p-3 sm:p-4 md:p-5 ${
                   mode === GameMode.COUNTRY_TO_FLAG ? 'border-2 border-game-primary bg-game-primary/5' : 'opacity-80 hover:opacity-100'
                 }`}>
                   <input 
@@ -131,21 +131,21 @@ const GameMenu: React.FC = () => {
                     className="sr-only"
                   />
                   <div className="flex items-start">
-                    <div className="bg-game-primary/10 rounded-full p-3 mr-4">
-                      <svg className="w-6 h-6 text-game-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="bg-game-primary/10 rounded-full p-2 sm:p-3 mr-2 sm:mr-3 md:mr-4 flex-shrink-0">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-game-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold text-lg mb-1">Country to Flag</div>
-                      <div className="text-sm text-game-light/70">
+                      <div className="font-semibold text-base sm:text-lg mb-0.5 sm:mb-1">Country to Flag</div>
+                      <div className="text-xs sm:text-sm text-game-light/70">
                         See a country name, guess which flag belongs to it
                       </div>
                     </div>
                   </div>
                 </label>
                 
-                <label className={`game-card-interactive p-5 ${
+                <label className={`game-card-interactive p-3 sm:p-4 md:p-5 ${
                   mode === GameMode.CAPITAL_CHALLENGE ? 'border-2 border-game-primary bg-game-primary/5' : 'opacity-80 hover:opacity-100'
                 }`}>
                   <input 
@@ -156,21 +156,21 @@ const GameMenu: React.FC = () => {
                     className="sr-only"
                   />
                   <div className="flex items-start">
-                    <div className="bg-game-primary/10 rounded-full p-3 mr-4">
-                      <svg className="w-6 h-6 text-game-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="bg-game-primary/10 rounded-full p-2 sm:p-3 mr-2 sm:mr-3 md:mr-4 flex-shrink-0">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-game-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold text-lg mb-1">Capital Challenge</div>
-                      <div className="text-sm text-game-light/70">
+                      <div className="font-semibold text-base sm:text-lg mb-0.5 sm:mb-1">Capital Challenge</div>
+                      <div className="text-xs sm:text-sm text-game-light/70">
                         See a capital city, guess which country it belongs to
                       </div>
                     </div>
                   </div>
                 </label>
                 
-                <label className={`game-card-interactive p-5 ${
+                <label className={`game-card-interactive p-3 sm:p-4 md:p-5 ${
                   mode === GameMode.REGION_MASTER ? 'border-2 border-game-primary bg-game-primary/5' : 'opacity-80 hover:opacity-100'
                 }`}>
                   <input 
@@ -181,14 +181,14 @@ const GameMenu: React.FC = () => {
                     className="sr-only"
                   />
                   <div className="flex items-start">
-                    <div className="bg-game-primary/10 rounded-full p-3 mr-4">
-                      <svg className="w-6 h-6 text-game-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="bg-game-primary/10 rounded-full p-2 sm:p-3 mr-2 sm:mr-3 md:mr-4 flex-shrink-0">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6 text-game-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold text-lg mb-1">Region Master</div>
-                      <div className="text-sm text-game-light/70">
+                      <div className="font-semibold text-base sm:text-lg mb-0.5 sm:mb-1">Region Master</div>
+                      <div className="text-xs sm:text-sm text-game-light/70">
                         Identify which region each country belongs to
                       </div>
                     </div>
@@ -197,11 +197,11 @@ const GameMenu: React.FC = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
               {/* Difficulty selection */}
               <div>
-                <label className="block text-lg font-medium mb-4">Difficulty</label>
-                <div className="space-y-2">
+                <label className="block text-base sm:text-lg font-medium mb-2 sm:mb-3 md:mb-4">Difficulty</label>
+                <div className="space-y-1 sm:space-y-2">
                   {Object.values(GameDifficulty).map((diff) => (
                     <label key={diff} className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all
                                               hover:bg-white/5">
@@ -241,8 +241,8 @@ const GameMenu: React.FC = () => {
               
               {/* Number of rounds selection */}
               <div>
-                <label className="block text-lg font-medium mb-4">Number of Rounds</label>
-                <div className="space-y-3">
+                <label className="block text-base sm:text-lg font-medium mb-2 sm:mb-3 md:mb-4">Number of Rounds</label>
+                <div className="space-y-1 sm:space-y-2 md:space-y-3">
                   {[5, 10, 15, 20].map((numRounds) => (
                     <label key={numRounds} className="flex items-center space-x-3 p-3 rounded-lg cursor-pointer transition-all
                                                    hover:bg-white/5">
@@ -274,14 +274,14 @@ const GameMenu: React.FC = () => {
           </div>
           
           {/* Submit button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center w-full">
             <button
               type="submit"
-              className="btn btn-primary text-lg py-4 px-10 shadow-game-lg"
+              className="btn btn-primary text-base sm:text-lg py-3 sm:py-4 px-6 sm:px-8 md:px-10 shadow-game-lg w-full sm:w-auto"
             >
-              <span className="flex items-center">
+              <span className="flex items-center justify-center">
                 <span>Start Game</span>
-                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
@@ -289,14 +289,14 @@ const GameMenu: React.FC = () => {
           </div>
           
           {/* Game guide */}
-          <div className="game-card p-6 border border-white/5">
-            <div className="flex items-center mb-4">
-              <svg className="w-5 h-5 text-game-accent mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="game-card p-4 sm:p-5 md:p-6 border border-white/5">
+            <div className="flex items-center mb-3 sm:mb-4">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-game-accent mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <h2 className="text-xl font-bold">How to Play</h2>
+              <h2 className="text-lg sm:text-xl font-bold">How to Play</h2>
             </div>
-            <ul className="space-y-2 list-none pl-5">
+            <ul className="space-y-1 sm:space-y-2 list-none pl-3 sm:pl-5">
               {[
                 "Choose your game mode, difficulty, and number of rounds.",
                 "Answer questions within the time limit for maximum points.",

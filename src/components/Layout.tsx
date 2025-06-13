@@ -37,13 +37,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col bg-game-dark text-game-light font-game">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-md">
-        <div className="game-container py-4">
-          <div className="flex justify-between items-center">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-md w-full">
+        <div className="game-container py-3 sm:py-4">
+          <div className="flex justify-between items-center flex-wrap gap-2">
             {/* Logo and title */}
             <div className="flex items-center space-x-2">
               {/* Replace the placeholder with actual logo */}
-              <div className="w-10 h-10 flex items-center justify-center">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
                 <img 
                   src={logo} 
                   alt="Fun with Flags Logo" 
@@ -51,19 +51,19 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   title="Fun with Flags Logo"
                 />
               </div>
-              <div className="text-2xl font-bold game-header">
+              <div className="text-xl sm:text-2xl font-bold game-header">
                 Fun with Flags
               </div>
             </div>
             
             {/* Navigation */}
-            <nav>
+            <nav className="flex">
               <ul className="flex space-x-2">
                 {/* End Game button (only when game is active) */}
                 {gameState.isActive && (
                   <li>
                     <button 
-                      className="btn btn-neutral"
+                      className="btn btn-neutral text-sm sm:text-base py-1 px-3 sm:py-2 sm:px-4"
                       onClick={handleEndGame}
                       aria-label="End current game"
                     >
@@ -78,14 +78,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     href="https://github.com/itfeelsharsh/funwithflags" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="btn btn-neutral"
+                    className="btn btn-neutral text-sm sm:text-base py-1 px-3 sm:py-2 sm:px-4"
                     aria-label="View source code on GitHub"
                   >
                     <span className="flex items-center">
-                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
                       </svg>
-                      GitHub
+                      <span className="hidden xs:inline">GitHub</span>
                     </span>
                   </a>
                 </li>
@@ -96,42 +96,42 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </header>
       
       {/* Main content */}
-      <main className="flex-grow relative">
+      <main className="flex-grow relative w-full">
         {/* Decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-96 h-96 bg-game-primary/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 -left-20 w-72 h-72 bg-game-secondary/10 rounded-full blur-3xl"></div>
+          <div className="absolute -top-20 -right-20 w-64 sm:w-96 h-64 sm:h-96 bg-game-primary/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 -left-20 w-48 sm:w-72 h-48 sm:h-72 bg-game-secondary/10 rounded-full blur-3xl"></div>
         </div>
         
         {/* Content container */}
-        <div className="relative z-10">
+        <div className="relative z-10 w-full">
           {children}
         </div>
       </main>
       
       {/* Footer */}
-      <footer className="border-t border-white/10 bg-black/30 backdrop-blur-md py-8">
+      <footer className="border-t border-white/10 bg-black/30 backdrop-blur-md py-4 sm:py-6 md:py-8 w-full">
         <div className="game-container">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="w-full md:w-auto text-center md:text-left">
               {/* Add logo to footer */}
-              <div className="flex items-center space-x-2 mb-2">
+              <div className="flex items-center justify-center md:justify-start space-x-2 mb-2">
                 <img 
                   src={logo} 
                   alt="Fun with Flags Logo" 
-                  className="w-8 h-8 object-contain"
+                  className="w-7 h-7 sm:w-8 sm:h-8 object-contain"
                   title="Fun with Flags Logo"
                 />
-                <div className="game-header text-lg">Fun with Flags</div>
+                <div className="game-header text-base sm:text-lg">Fun with Flags</div>
               </div>
-              <p className="text-sm text-game-light/60">
+              <p className="text-xs sm:text-sm text-game-light/60">
                 Test your knowledge of world flags and geography
               </p>
             </div>
             
-            <div className="text-center md:text-right text-sm text-game-light/60">
+            <div className="w-full md:w-auto text-center md:text-right text-xs sm:text-sm text-game-light/60">
               <p className="mb-1">
-                Inspired by Dr. Sheldon Cooper's "Fun with Flags" from The Big Bang Theory
+                Inspired by Dr. Sheldon Cooper's "Fun with Flags"
               </p>
               <p className="flex items-center justify-center md:justify-end">
                 <span className="mr-2">Built with</span>
